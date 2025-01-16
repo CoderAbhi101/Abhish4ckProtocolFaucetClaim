@@ -30,7 +30,7 @@
             <div style="border-radius: 10px; margin-bottom: 20px; border: none; width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; background-color: #77B254; color: whitesmoke; padding: 10px;">
                 <h3>Faucet Claim Successful!</h3>
                 <p style="color: rgb(236, 223, 223); font-size: 1rem;">(On {{ tx['date'] }} At {{ tx['time'] }})</p><br>
-                <p style="color: rgb(236, 223, 223); word-wrap: break-word;">Txhash: {{ tx['txhash'] }}</p>
+                <p style="color: rgb(236, 223, 223); word-wrap: break-word;">{{ tx['txhash'] }}</p>
             </div>
             {% endfor %}
         </div>
