@@ -12,7 +12,7 @@ def home():
     return render_template("home.html", txs=txs.reverse())
 
 def run():
-    app.run(port=8080)
+    app.run(host="0.0.0.0", port=8080)
 
 t = Thread(target=run)
 t.start()
