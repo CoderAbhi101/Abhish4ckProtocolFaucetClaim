@@ -4,12 +4,11 @@ import requests
 import time
 
 app = Flask(__name__)
-tx_no = 1
-txs = {}
+txs = []
 
 @app.route("/")
 def home():
-    return render_template("home.html", txs=txs)
+    return render_template("home.html", txs=txs.reverse())
 
 def run():
     app.run(host="0.0.0.0", port=8080)
@@ -23,9 +22,8 @@ def claim_faucet():
         if response.status_code == 200:
             response2 = requests.get("https://timeapi.io/api/Time/current/zone?timeZone=Asia/Kolkata")
             if response2.status_code == 200:
-                global tx_no
-                txs[f"tx{tx_no}"] = {'date': response2.json()["date"], 'time': response2.json()["time"], 'txhash': response.json()["msg"]}
-                tx_no += 1
+                global txs
+                txs.append({'date': response2.json()["date"], 'time': response2.json()["time"], 'txhash': response.json()["msg"]})
     except Exception as e:
         print(f"Error occurred: {e}")
 
