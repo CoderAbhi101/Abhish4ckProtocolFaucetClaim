@@ -26,7 +26,6 @@
             <h1 style="font-family: monospace;">Abhis<span style="color: lime; font-family: monospace;">h4ck</span> Protocol</h1>
         </header>
         <div class="Main-Container" style="margin-top: 65px; padding-top: 40px;">
-            {% set txs = txs|dictsort(reverse=true) %}
             {% for number, tx in txs.items() %}
             <div style="border-radius: 10px; margin-bottom: 20px; border: none; width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; background-color: #77B254; color: whitesmoke; padding: 10px;">
                 <h3>Faucet Claim Successful!</h3>
