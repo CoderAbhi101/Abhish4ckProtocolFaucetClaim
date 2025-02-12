@@ -31,6 +31,7 @@
                 <h3>Faucet Claim Successful!</h3>
                 <p style="color: rgb(236, 223, 223); font-size: 1rem;">(On {{ tx['date'] }} At {{ tx['time'] }})</p><br>
                 <p style="color: rgb(236, 223, 223); word-wrap: break-word;">{{ tx['txhash'] }}</p>
+                <p style="color: rgb(236, 223, 223); word-wrap: break-word;">Wallet: {{ tx['wallet'] }}</p>
             </div>
             {% endfor %}
         </div>
