@@ -27,7 +27,20 @@ def claim_faucet():
                 response2 = requests.get("https://timeapi.io/api/Time/current/zone?timeZone=Asia/Kolkata")
                 if response2.status_code == 200:
                     global txs
-                    txs.append({'date': response2.json()["date"], 'time': response2.json()["time"], 'txhash': response.json()["msg"]})
+                    txs.append({'date': response2.json()["date"], 'time': response2.json()["time"], 'txhash': response.json()["msg"]}, 'wallet': '0x01fdc84aa8074f74794E095AE9347b6538817050')
+                    break
+        except Exception as e:
+            print(f"Error occurred: {e}")
+    attempts = 0
+    while attempts < 100:
+        try:
+            attempts += 1
+            response = requests.post("https://faucet.testnet.humanity.org/api/claim", json={"address": "0x673fcF2440FDe7A154150bAb04853A4583bE9d69"})
+            if response.status_code == 200:
+                response2 = requests.get("https://timeapi.io/api/Time/current/zone?timeZone=Asia/Kolkata")
+                if response2.status_code == 200:
+                    global txs
+                    txs.append({'date': response2.json()["date"], 'time': response2.json()["time"], 'txhash': response.json()["msg"]}, 'wallet': '0x673fcF2440FDe7A154150bAb04853A4583bE9d69')
                     break
         except Exception as e:
             print(f"Error occurred: {e}")
