@@ -27,13 +27,6 @@ def claim_faucet():
             txs.append({'date': timeAPI.json()["date"], 'time': timeAPI.json()["time"], 'txhash': response.json()["msg"], 'wallet': '0x01fdc84aa8074f74794E095AE9347b6538817050'})
     except Exception as e:
         print(f"Error occurred: {e}")
-    try:
-        attempts += 1
-        response = requests.post("https://faucet.testnet.humanity.org/api/claim", json={"address": "0x673fcF2440FDe7A154150bAb04853A4583bE9d69"})
-        if response.status_code == 200:
-            txs.append({'date': timeAPI.json()["date"], 'time': timeAPI.json()["time"], 'txhash': response.json()["msg"], 'wallet': '0x673fcF2440FDe7A154150bAb04853A4583bE9d69'})
-    except Exception as e:
-        print(f"Error occurred: {e}")
 
 while True:
     claim_faucet()
